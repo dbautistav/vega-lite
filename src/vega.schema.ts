@@ -342,6 +342,16 @@ export interface VgAxisConfig extends VgAxisBase {
   labelFontSize?: number;
 
   /**
+   * Maximum allowed pixel width of axis tick labels.
+   */
+  labelLimit?: number;
+
+  /**
+   * Maximum allowed pixel width of axis titles.
+   */
+   titleLimit?: number;
+
+  /**
    * The width, in pixels, of ticks.
    * @minimum 0
    */

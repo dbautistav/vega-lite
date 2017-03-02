@@ -1,6 +1,6 @@
 import * as log from '../log';
 
-import {Axis, VlOnlyAxisBase, VL_ONLY_AXIS_PROPERTIES} from '../axis';
+import {Axis} from '../axis';
 import {COLUMN, ROW, X, Y, Channel} from '../channel';
 import {defaultConfig, Config} from '../config';
 import {Facet} from '../facet';
@@ -127,15 +127,7 @@ export class FacetModel extends Model {
       if (facet[channel]) {
         const axisSpec = facet[channel].axis;
         if (axisSpec !== false) {
-          let vlOnlyAxisProperties: VlOnlyAxisBase = {};
-          VL_ONLY_AXIS_PROPERTIES.forEach(function(property) {
-            if (config.facet.axis[property] !== undefined) {
-              vlOnlyAxisProperties[property] = config.facet.axis[property];
-            }
-          });
-
           const modelAxis = _axis[channel] = {
-            ...vlOnlyAxisProperties,
             ...axisSpec
           };
 
