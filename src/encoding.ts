@@ -75,7 +75,7 @@ export interface Encoding {
   /**
    * Geopath of the `path` mark.
    */
-  geopath?: FieldDef;
+  path?: FieldDef;
 
   /**
    * stack order for stacked marks or order of data points in line marks.

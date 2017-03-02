@@ -31,7 +31,7 @@ export namespace Channel {
   export const TEXT: 'text' = 'text';
   export const ORDER: 'order' = 'order';
   export const DETAIL: 'detail' = 'detail';
-  export const GEOPATH: 'geopath' = 'geopath';
+  export const PATH: 'path' = 'path';
 }
 
 export type Channel = keyof Encoding | keyof Facet;
@@ -49,15 +49,15 @@ export const TEXT = Channel.TEXT;
 export const DETAIL = Channel.DETAIL;
 export const ORDER = Channel.ORDER;
 export const OPACITY = Channel.OPACITY;
-export const GEOPATH = Channel.GEOPATH;
+export const PATH = Channel.PATH;
 
 
-export const CHANNELS = [X, Y, X2, Y2, ROW, COLUMN, SIZE, SHAPE, COLOR, ORDER, OPACITY, GEOPATH, TEXT, DETAIL];
+export const CHANNELS = [X, Y, X2, Y2, ROW, COLUMN, SIZE, SHAPE, COLOR, ORDER, OPACITY, PATH, TEXT, DETAIL];
 
 // CHANNELS without COLUMN, ROW
-export const UNIT_CHANNELS = [X, Y, X2, Y2, SIZE, SHAPE, COLOR, ORDER, OPACITY, GEOPATH, TEXT, DETAIL];
+export const UNIT_CHANNELS = [X, Y, X2, Y2, SIZE, SHAPE, COLOR, ORDER, OPACITY, PATH, TEXT, DETAIL];
 
-// UNIT_CHANNELS without X2, Y2, ORDER, GEOPATH, DETAIL, TEXT
+// UNIT_CHANNELS without X2, Y2, ORDER, PATH, DETAIL, TEXT
 export const UNIT_SCALE_CHANNELS = [X, Y, SIZE, SHAPE, COLOR, OPACITY];
 
 // UNIT_SCALE_CHANNELS with ROW, COLUMN
@@ -129,7 +129,7 @@ export function getSupportedMark(channel: Channel): SupportedMark {
       return {point: true};
     case TEXT:
       return {text: true};
-    case GEOPATH:
+    case PATH:
       return {path: true};
   }
   return {};
@@ -159,7 +159,7 @@ export function getSupportedRole(channel: Channel): SupportedRole {
       };
     case ROW:
     case COLUMN:
-    case GEOPATH:
+    case PATH:
     case SHAPE:
       return {
         measure: false,
@@ -226,7 +226,7 @@ export function getRangeType(channel: Channel): RangeType {
     case X2:
     case Y2:
     case DETAIL:
-    case GEOPATH:
+    case PATH:
     case TEXT:
     case ORDER:
       return undefined;

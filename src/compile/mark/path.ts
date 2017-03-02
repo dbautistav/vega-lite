@@ -13,7 +13,7 @@ export const path: MarkCompiler = {
   encodeEntry: (model: UnitModel) => {
     const {config, encoding} = model;
     return {
-      path: pathDefault(config, encoding.geopath),
+      path: pathDefault(config, encoding.path),
       ...mixins.color(model),
       ...mixins.nonPosition('opacity', model),
       ...mixins.nonPosition('size', model, {
